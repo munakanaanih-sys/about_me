@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لمحة عني - ومضات ذكية | About Me - Wamadat Zakiya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2b5cb7;
+            --secondary-color: #4a90e2;
+            --text-dark: #2d3436;
+            --whatsapp-color: #25D366;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fffdfa 0%, #f6f0ea 25%, #eef5fc 60%, #fbf3f9 100%);
+            background-attachment: fixed;
+            color: var(--text-dark);
+            line-height: 1.8;
+            padding-bottom: 60px;
+            transition: all 0.3s ease;
+        }
+
+        /* رأس الصفحة */
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* فصل الشعار عن أزرار اللغة */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-round {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(43, 92, 183, 0.1);
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .brand-sub {
+            font-size: 14px;
+            color: #636e72;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* أزرار اختيار اللغة */
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .oval-profile-wrapper {
+            display: inline-block;
+            width: 170px;
+            height: 230px;
+            border-radius: 50% / 35% 35% 65% 65%;
+            overflow: hidden;
+            border: 5px solid var(--white);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            background-color: var(--white);
+        }
+
+        .profile-img-oval {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            /* استخدام start ليتجاوب تلقائياً مع اليمين واليسار */
+            text-align: start; 
+        }
+
+        .profile-name {
+            font-size: 28px;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .profile-title {
+            font-size: 17px;
+            color: #556270;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 17px;
+            text-align: justify;
+            color: #333333;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            border-bottom: 2px solid rgba(43, 92, 183, 0.1);
+            padding-bottom: 8px;
+            margin-top: 25px;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .badge {
+            background-color: rgba(43, 92, 183, 0.08);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            border: 1px solid rgba(43, 92, 183, 0.15);
+        }
+
+        .edu-list {
+            list-style: none;
+            padding-inline-start: 5px; /* يدعم اللغتين */
+        }
+
+        .edu-item {
+            position: relative;
+            padding-inline-start: 30px; /* يدعم اللغتين */
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .edu-item::before {
+            content: '🎓';
+            position: absolute;
+            inset-inline-start: 0; /* يدعم اللغتين */
+            top: 0;
+        }
+
+        /* تنسيقات قسم التواصل */
+        .footer-contacts {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .contact-heading {
+            font-size: 18px;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--whatsapp-color);
+            color: var(--white);
+            padding: 12px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            color: var(--white);
+        }
+
+        .qr-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .qr-card {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 150px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .qr-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .qr-image {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        .qr-title {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 15px 20px; flex-direction: column; }
+            .glass-card { padding: 25px 20px; }
+            .qr-section { gap: 15px; }
+            .qr-card { width: 130px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-logo-container">
+            <img src="https://i.postimg.cc/SNgVgv8L/my-new-icon.png" alt="شعار ومضات ذكية" class="logo-round">
+            <div class="header-text">
+                <span class="brand-name" data-i18n="brandName">ومضات ذكية</span>
+                <span class="brand-sub" data-i18n="brandSub">لمحة عن منى مصطفى</span>
+            </div>
+        </div>
+        
+        <!-- أزرار تبديل اللغة -->
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLang('ar')">عربي</button>
+            <button class="lang-btn" onclick="setLang('he')">עברית</button>
+            <button class="lang-btn" onclick="setLang('en')">English</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="oval-profile-wrapper">
+            <img src="https://i.postimg.cc/QdsFnGkv/Whats-App-Image-2026-06-18-at-17-39-40.jpg" alt="منى مصطفى - كناعنة" class="profile-img-oval">
+        </div>
+
+        <div class="glass-card">
+            <h1 class="profile-name" data-i18n="name">منى مصطفى - كناعنة</h1>
+            <p class="profile-title" data-i18n="title">معلمة ومطوّرة أدوات تعليمية ذكية</p>
+            
+            <p class="intro-text" data-i18n="intro">
+                أهلاً ومرحباً بكم زملائي وزميلاتي الأعزاء. أنا <strong>منى مصطفى - كناعنة، ابنة عرابة البطوف</strong>، معلمة ومسؤولة تقييم وتوجيه تربوي في سلك الميدان التعليمي التابع لوزارة التربية والتعليم. على مدار <strong>20 عاماً من العطاء المستمر</strong>، خضت رحلة ممتعة وغنية وتوليت تدريس مساقات العلوم والرياضيات لمستويات وفئات طلابية متنوعة وشاملة؛ بدءاً من صفوف التمكين والتوجيه <span dir="ltr">(<bdi>תל"ם</bdi>, <bdi>מנ"ע</bdi>)</span> وصولاً إلى صفوف الريادة العلمية والتميز <span dir="ltr">(<bdi>מופת</bdi>, <bdi>עתודה מדעית</bdi>)</span>. هذا التنوع الميداني العميق أتاح لي ابتكار وتطوير استراتيجيات تدريس ملائمة تضمن لكل طالب الوصول إلى قمة قدراته.
+            </p>
+
+            <div class="badge-container">
+                <span class="badge" data-i18n="badge1"><bdi>עתודה מדעית</bdi></span>
+                <span class="badge" data-i18n="badge2"><bdi>מופת</bdi></span>
+                <span class="badge" data-i18n="badge3"><bdi>תל"ם</bdi></span>
+                <span class="badge" data-i18n="badge4"><bdi>מנ"ע</bdi></span>
+            </div>
+
+            <h2 class="section-title" data-i18n="eduTitle">🎓 الخلفية الأكاديمية والمهنية</h2>
+            <ul class="edu-list">
+                <li class="edu-item" data-i18n="edu1"><strong>اللقب الأول (B.Ed):</strong> تخصص علم الرياضيات والفيزياء للمرحلة الإعدادية.</li>
+                <li class="edu-item" data-i18n="edu2"><strong>اللقب الثاني (M.Ed):</strong> تخصص علم الكيمياء والفيزياء للمرحلة الإعدادية.</li>
+                <li class="edu-item" data-i18n="edu3"><strong>دورة تأهيل:</strong> مركزي التقييم في البلاد (240 ساعة).</li>
+            </ul>
+
+            <h2 class="section-title" data-i18n="techTitle">💻 الشغف التكنولوجي ورحلة التطوير الذاتي</h2>
+            <p class="intro-text" data-i18n="techPara">
+                رافقني منذ طفولتي شغف فريد ومميز بكل ما يخص الحاسوب، الألعاب الرقمية، والأدوات التكنولوجية على اختلاف أشكالها، وكنت دائمًا مدفوعة برغبة الاستكشاف. ومع الطفرة الحالية للذكاء الاصطناعي، أخذت على عاتقي دمج هذا الشغف الطفولي الأصيل بخبرتي التعليمية التي تمتد لعقدين من الزمن. قمت بتطوير مهاراتي برمجياً وتكنولوجياً بشكل ذاتي لتصميم صفحات برمجية تفاعلية تخدم غرف التدريس، واليوم يسعدني أن أنقل هذه الخبرة لكل معلم ومعلمة يبحثون عن التميز وتطوير أدواتهم.
+            </p>
+
+            <h2 class="section-title" data-i18n="visionTitle">🚀 رؤية منصة "ومضات ذكية"</h2>
+            <p class="intro-text" data-i18n="visionPara">
+                لم تولد هذه المنصة من فراغ، بل نبعت من قلب غرف التدريس، ومن إدراكي التام للأعباء الجسيمة والمسؤوليات التي تقع على عاتق المعلم اليوم. بنيت "ومضات ذكية" لأوفر لكم مساعداً ذكياً مبنياً على تقنيات الذكاء الاصطناعي، يتيح لكم اختصار الوقت، وتصميم حصص تفاعلية فائقة الجاذبية، وبناء مسوحات وأدوات تقييم تربوية تضمن تلبية احتياجات الفروق الفردية لكافة مستويات الطلاب.
+            </p>
+
+            <div class="footer-contacts">
+                <p class="contact-heading" data-i18n="contactHeading">يسعدني جداً تواصلكم وانضمامكم إلى هذه الرحلة الرقمية!</p>
+                
+                <a href="https://wa.me/972547955755" class="whatsapp-btn" target="_blank" data-i18n="whatsappBtn">
+                    <i class="fab fa-whatsapp" style="font-size: 22px;"></i>
+                    تواصل معي عبر واتساب
+                </a>
+
+                <div class="qr-section">
+                    <a href="https://www.instagram.com/invites/contact/?igsh=1f1kn2se14d4g&utm_content=3d8dgkv" target="_blank" class="qr-card">
+                        <img src="url_qrcodecreator.com_18_04_35.png" alt="QR Instagram" class="qr-image">
+                        <span class="qr-title" style="color: #E1306C;" data-i18n="instaText"><i class="fab fa-instagram"></i> انستجرام</span>
+                    </a>
+                    
+                    <a href="https://www.facebook.com/share/1XHc7SCeq1/" target="_blank" class="qr-card">
+                        <img src="muna mustafa kanaanih.png" alt="QR Facebook" class="qr-image">
+                        <span class="qr-title" style="color: #1877F2;" data-i18n="fbText"><i class="fab fa-facebook"></i> فيسبوك</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- كود برمجة اللغات (جافاسكريبت) -->
+    <script>
+        const translations = {
+            ar: {
+                brandName: 'ومضات ذكية',
+                brandSub: 'لمحة عن منى مصطفى',
+                name: 'منى مصطفى - كناعنة',
+                title: 'معلمة ومطوّرة أدوات تعليمية ذكية',
+                intro: 'أهلاً ومرحباً بكم زملائي وزميلاتي الأعزاء. أنا <strong>منى مصطفى - كناعنة، ابنة عرابة البطوف</strong>، معلمة ومسؤولة تقييم وتوجيه تربوي في سلك الميدان التعليمي التابع لوزارة التربية والتعليم. على مدار <strong>20 عاماً من العطاء المستمر</strong>، خضت رحلة ممتعة وغنية وتوليت تدريس مساقات العلوم والرياضيات لمستويات وفئات طلابية متنوعة وشاملة؛ بدءاً من صفوف التمكين والتوجيه <span dir="ltr">(<bdi>תל"ם</bdi>, <bdi>מנ"ע</bdi>)</span> وصولاً إلى صفوف الريادة العلمية والتميز <span dir="ltr">(<bdi>מופת</bdi>, <bdi>עתודה מדעית</bdi>)</span>. هذا التنوع الميداني العميق أتاح لي ابتكار وتطوير استراتيجيات تدريس ملائمة تضمن لكل طالب الوصول إلى قمة قدراته.',
+                badge1: '<bdi>עתודה מדעית</bdi>',
+                badge2: '<bdi>מופת</bdi>',
+                badge3: '<bdi>תל"ם</bdi>',
+                badge4: '<bdi>מנ"ע</bdi>',
+                eduTitle: '🎓 الخلفية الأكاديمية والمهنية',
+                edu1: '<strong>اللقب الأول (B.Ed):</strong> تخصص علم الرياضيات والفيزياء للمرحلة الإعدادية.',
+                edu2: '<strong>اللقب الثاني (M.Ed):</strong> تخصص علم الكيمياء والفيزياء للمرحلة الإعدادية.',
+                edu3: '<strong>دورة تأهيل:</strong> مركزي التقييم في البلاد (240 ساعة).',
+                techTitle: '💻 الشغف التكنولوجي ورحلة التطوير الذاتي',
+                techPara: 'رافقني منذ طفولتي شغف فريد ومميز بكل ما يخص الحاسوب، الألعاب الرقمية، والأدوات التكنولوجية على اختلاف أشكالها، وكنت دائمًا مدفوعة برغبة الاستكشاف. ومع الطفرة الحالية للذكاء الاصطناعي، أخذت على عاتقي دمج هذا الشغف الطفولي الأصيل بخبرتي التعليمية التي تمتد لعقدين من الزمن. قمت بتطوير مهاراتي برمجياً وتكنولوجياً بشكل ذاتي لتصميم صفحات برمجية تفاعلية تخدم غرف التدريس، واليوم يسعدني أن أنقل هذه الخبرة لكل معلم ومعلمة يبحثون عن التميز وتطوير أدواتهم.',
+                visionTitle: '🚀 رؤية منصة "ومضات ذكية"',
+                visionPara: 'لم تولد هذه المنصة من فراغ، بل نبعت من قلب غرف التدريس، ومن إدراكي التام للأعباء الجسيمة والمسؤوليات التي تقع على عاتق المعلم اليوم. بنيت "ومضات ذكية" لأوفر لكم مساعداً ذكياً مبنياً على تقنيات الذكاء الاصطناعي، يتيح لكم اختصار الوقت، وتصميم حصص تفاعلية فائقة الجاذبية، وبناء مسوحات وأدوات تقييم تربوية تضمن تلبية احتياجات الفروق الفردية لكافة مستويات الطلاب.',
+                contactHeading: 'يسعدني جداً تواصلكم وانضمامكم إلى هذه الرحلة الرقمية!',
+                whatsappBtn: '<i class="fab fa-whatsapp" style="font-size: 22px;"></i> تواصل معي عبر واتساب',
+                instaText: '<i class="fab fa-instagram"></i> انستجرام',
+                fbText: '<i class="fab fa-facebook"></i> فيسبوك'
+            },
+            he: {
+                brandName: 'הברקות חכמות',
+                brandSub: 'אודות מונא מוסטפא',
+                name: 'מונא מוסטפא - כנאענה',
+                title: 'מורה ומפתחת כלי חינוך חכמים',
+                intro: 'ברוכים הבאים עמיתיי היקרים. אני <strong>מונא מוסטפא - כנאענה, בת עראבה אל-בטוף</strong>, מורה ורכזת הערכה והדרכה במערכת החינוך של משרד החינוך. במהלך <strong>20 שנות עשייה רצופה</strong>, חוויתי מסע מרתק ועשיר בהוראת מדעים ומתמטיקה לרמות ואוכלוסיות מגוונות; החל מכיתות הכוונה (<bdi>תל"ם</bdi>, <bdi>מנ"ע</bdi>) ועד לכיתות מצוינות ומנהיגות מדעית (<bdi>מופת</bdi>, <bdi>עתודה מדעית</bdi>). גיוון שטח זה אפשר לי לפתח אסטרטגיות הוראה מותאמות המבטיחות לכל תלמיד להגיע לשיא הפוטנציאל שלו.',
+                badge1: '<bdi>עתודה מדעית</bdi>',
+                badge2: '<bdi>מופת</bdi>',
+                badge3: '<bdi>תל"ם</bdi>',
+                badge4: '<bdi>מנ"ע</bdi>',
+                eduTitle: '🎓 רקע אקדמי ומקצועי',
+                edu1: '<strong>תואר ראשון (B.Ed):</strong> מתמטיקה ופיזיקה לחטיבת ביניים.',
+                edu2: '<strong>תואר שני (M.Ed):</strong> כימיה ופיזיקה לחטיבת ביניים.',
+                edu3: '<strong>קורס הכשרה:</strong> מעריכים ארציים (240 שעות).',
+                techTitle: '💻 תשוקה טכנולוגית ופיתוח עצמי',
+                techPara: 'מאז ילדותי ליוותה אותי תשוקה ייחודית למחשבים, משחקים דיגיטליים וכלים טכנולוגיים. עם הזינוק הנוכחי של הבינה המלאכותית, לקחתי על עצמי לשלב תשוקה זו עם הניסיון החינוכי שלי מזה שני עשורים. פיתחתי את כישוריי התכנותיים והטכנולוגיים באופן עצמאי כדי לעצב דפים חינוכיים אינטראקטיביים, והיום אני שמחה לחלוק את הניסיון הזה עם כל מורה המחפש מצוינות.',
+                visionTitle: '🚀 החזון של "הברקות חכמות"',
+                visionPara: 'הפלטפורמה צמחה מלב כיתות הלימוד ומתוך הבנתי המלאה לעומס הרב המוטל על המורים כיום. בניתי את הפלטפורמה כדי לספק לכם עוזר חכם מבוסס בינה מלאכותית, המאפשר לכם לחסוך זמן, לעצב שיעורים אינטראקטיביים אטרקטיביים, ולבנות כלי הערכה מדויקים העונים על הצרכים השונים של התלמידים.',
+                contactHeading: 'אשמח לתקשורת שלכם ולהצטרפותכם למסע הדיגיטלי הזה!',
+                whatsappBtn: '<i class="fab fa-whatsapp" style="font-size: 22px;"></i> צרו קשר בוואטסאפ',
+                instaText: '<i class="fab fa-instagram"></i> אינסטגרם',
+                fbText: '<i class="fab fa-facebook"></i> פייסבוק'
+            },
+            en: {
+                brandName: 'Wamadat Zakiya',
+                brandSub: 'About Muna Mustafa',
+                name: 'Muna Mustafa - Kanaanih',
+                title: 'Teacher & Developer of Smart Educational Tools',
+                intro: 'Welcome, my dear colleagues. I am <strong>Muna Mustafa - Kanaanih, from Arraba Al-Batouf</strong>, a teacher and educational evaluation coordinator in the Ministry of Education. Over <strong>20 years of continuous giving</strong>, I have experienced a rich journey teaching science and mathematics to diverse levels and student populations; from support classes (Telem, Mana) to scientific excellence classes (Mofet, Atuda Madait). This deep field diversity allowed me to innovate tailored teaching strategies ensuring every student reaches their peak potential.',
+                badge1: 'Atuda Madait',
+                badge2: 'Mofet',
+                badge3: 'Telem',
+                badge4: 'Mana',
+                eduTitle: '🎓 Academic & Professional Background',
+                edu1: '<strong>Bachelor\'s Degree (B.Ed):</strong> Mathematics and Physics for Middle School.',
+                edu2: '<strong>Master\'s Degree (M.Ed):</strong> Chemistry and Physics for Middle School.',
+                edu3: '<strong>Training Course:</strong> National Evaluation Coordinators (240 hours).',
+                techTitle: '💻 Technological Passion & Self-Development',
+                techPara: 'Since childhood, I\'ve had a unique passion for computers, digital games, and technological tools. With the current leap in AI, I took it upon myself to merge this childhood passion with my two decades of educational experience. I self-taught programming and tech skills to design interactive educational pages, and today I am thrilled to share this with teachers seeking excellence.',
+                visionTitle: '🚀 The Vision of "Wamadat Zakiya"',
+                visionPara: 'This platform was born from the heart of the classroom, understanding the heavy burdens on today\'s teachers. I built it to provide you with a smart AI-based assistant, saving you time, designing highly engaging interactive lessons, and building precise evaluation tools that meet the individual needs of all students.',
+                contactHeading: 'I would be delighted to connect and have you join this digital journey!',
+                whatsappBtn: '<i class="fab fa-whatsapp" style="font-size: 22px;"></i> Contact via WhatsApp',
+                instaText: '<i class="fab fa-instagram"></i> Instagram',
+                fbText: '<i class="fab fa-facebook"></i> Facebook'
+            }
+        };
+
+        function setLang(lang) {
+            // تغيير اتجاه الصفحة بناء على اللغة (انجليزي يسار-يمين، والباقي يمين-يسار)
+            document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
+            document.documentElement.lang = lang;
+
+            // تغيير نصوص الصفحة
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // تحديث تصميم الأزرار المحددة
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
