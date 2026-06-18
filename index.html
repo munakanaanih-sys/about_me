@@ -257,26 +257,48 @@
             padding: 15px;
             border-radius: 16px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.03);
+            border: 2px solid transparent;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            width: 150px;
+            width: 160px;
             text-decoration: none;
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
+        .qr-card.instagram {
+            border-color: #C13584;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) border-box;
+            border: 3px solid transparent;
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .qr-card.facebook {
+            border: 3px solid #1877F2;
+            box-shadow: 0 5px 15px rgba(24, 119, 242, 0.15);
+        }
+
         .qr-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .qr-card.instagram:hover {
+            box-shadow: 0 8px 25px rgba(193, 53, 132, 0.3);
+        }
+
+        .qr-card.facebook:hover {
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.3);
         }
 
         .qr-image {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             object-fit: contain;
+            border-radius: 8px;
         }
 
         .qr-title {
@@ -284,7 +306,50 @@
             font-weight: 700;
         }
 
-        @media (max-width: 600px) {
+        /* Scroll animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-chips {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .info-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(43, 92, 183, 0.06);
+            border: 1px solid rgba(43, 92, 183, 0.15);
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .info-chip i {
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        .info-chip:hover {
+            background: rgba(43, 92, 183, 0.12);
+            transform: translateY(-2px);
+        }
             header { padding: 15px 20px; flex-direction: column; }
             .glass-card { padding: 25px 20px; }
             .qr-section { gap: 15px; }
@@ -316,7 +381,7 @@
             <img src="https://i.postimg.cc/QdsFnGkv/Whats-App-Image-2026-06-18-at-17-39-40.jpg" alt="منى مصطفى - كناعنة" class="profile-img-oval">
         </div>
 
-        <div class="glass-card">
+        <div class="glass-card fade-in-up">
             <h1 class="profile-name" data-i18n="name">منى مصطفى - كناعنة</h1>
             <p class="profile-title" data-i18n="title">معلمة ومطوّرة أدوات تعليمية ذكية</p>
             
@@ -348,6 +413,17 @@
                 لم تولد هذه المنصة من فراغ، بل نبعت من قلب غرف التدريس، ومن إدراكي التام للأعباء الجسيمة والمسؤوليات التي تقع على عاتق المعلم اليوم. بنيت "ومضات ذكية" لأوفر لكم مساعداً ذكياً مبنياً على تقنيات الذكاء الاصطناعي، يتيح لكم اختصار الوقت، وتصميم حصص تفاعلية فائقة الجاذبية، وبناء مسوحات وأدوات تقييم تربوية تضمن تلبية احتياجات الفروق الفردية لكافة مستويات الطلاب.
             </p>
 
+            <div class="info-chips">
+                    <a href="mailto:Munakanaanih@gmail.com" class="info-chip">
+                        <i class="fas fa-envelope"></i>
+                        <span data-i18n="emailChip">Munakanaanih@gmail.com</span>
+                    </a>
+                    <span class="info-chip">
+                        <i class="fas fa-school"></i>
+                        <span data-i18n="schoolChip">مدرسة عربية — المرحلة الإعدادية</span>
+                    </span>
+            </div>
+
             <div class="footer-contacts">
                 <p class="contact-heading" data-i18n="contactHeading">يسعدني جداً تواصلكم وانضمامكم إلى هذه الرحلة الرقمية!</p>
                 
@@ -357,15 +433,13 @@
                 </a>
 
                 <div class="qr-section">
-                    <!-- تم استخدام API لتوليد الباركود مباشرة من رابط الانستجرام الخاص بك -->
-                    <a href="https://www.instagram.com/invites/contact/?igsh=1f1kn2se14d4g&utm_content=3d8dgkv" target="_blank" class="qr-card">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.instagram.com/invites/contact/?igsh=1f1kn2se14d4g" alt="QR Instagram" class="qr-image">
-                        <span class="qr-title" style="color: #E1306C;" data-i18n="instaText"><i class="fab fa-instagram"></i> انستجرام</span>
+                    <a href="https://www.instagram.com/invites/contact/?igsh=1f1kn2se14d4g&utm_content=3d8dgkv" target="_blank" class="qr-card instagram">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=833AB4&data=https://www.instagram.com/invites/contact/?igsh=1f1kn2se14d4g" alt="QR Instagram" class="qr-image">
+                        <span class="qr-title" style="color: #C13584;" data-i18n="instaText"><i class="fab fa-instagram"></i> انستجرام</span>
                     </a>
                     
-                    <!-- تم استخدام API لتوليد الباركود مباشرة من رابط الفيسبوك الخاص بك -->
-                    <a href="https://www.facebook.com/share/1XHc7SCeq1/" target="_blank" class="qr-card">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.facebook.com/share/1XHc7SCeq1/" alt="QR Facebook" class="qr-image">
+                    <a href="https://www.facebook.com/share/1XHc7SCeq1/" target="_blank" class="qr-card facebook">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=1877F2&data=https://www.facebook.com/share/1XHc7SCeq1/" alt="QR Facebook" class="qr-image">
                         <span class="qr-title" style="color: #1877F2;" data-i18n="fbText"><i class="fab fa-facebook"></i> فيسبوك</span>
                     </a>
                 </div>
@@ -397,7 +471,9 @@
                 contactHeading: 'يسعدني جداً تواصلكم وانضمامكم إلى هذه الرحلة الرقمية!',
                 whatsappBtn: '<i class="fab fa-whatsapp" style="font-size: 22px;"></i> تواصل معي عبر واتساب',
                 instaText: '<i class="fab fa-instagram"></i> انستجرام',
-                fbText: '<i class="fab fa-facebook"></i> فيسبوك'
+                fbText: '<i class="fab fa-facebook"></i> فيسبوك',
+                emailChip: 'Munakanaanih@gmail.com',
+                schoolChip: 'مدرسة عربية — المرحلة الإعدادية'
             },
             he: {
                 brandName: 'הברקות חכמות',
@@ -420,7 +496,9 @@
                 contactHeading: 'אשמח לתקשורת שלכם ולהצטרפותכם למסע הדיגיטלי הזה!',
                 whatsappBtn: '<i class="fab fa-whatsapp" style="font-size: 22px;"></i> צרו קשר בוואטסאפ',
                 instaText: '<i class="fab fa-instagram"></i> אינסטגרם',
-                fbText: '<i class="fab fa-facebook"></i> פייסבוק'
+                fbText: '<i class="fab fa-facebook"></i> פייסבוק',
+                emailChip: 'Munakanaanih@gmail.com',
+                schoolChip: 'בית ספר ערבי — חטיבת ביניים'
             },
             en: {
                 brandName: 'Wamadat Zakiya',
@@ -443,7 +521,9 @@
                 contactHeading: 'I would be delighted to connect and have you join this digital journey!',
                 whatsappBtn: '<i class="fab fa-whatsapp" style="font-size: 22px;"></i> Contact via WhatsApp',
                 instaText: '<i class="fab fa-instagram"></i> Instagram',
-                fbText: '<i class="fab fa-facebook"></i> Facebook'
+                fbText: '<i class="fab fa-facebook"></i> Facebook',
+                emailChip: 'Munakanaanih@gmail.com',
+                schoolChip: 'Arab School — Middle School Level'
             }
         };
 
@@ -463,6 +543,17 @@
             buttons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
         }
+
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
     </script>
 
 </body>
