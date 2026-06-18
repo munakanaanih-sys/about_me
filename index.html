@@ -34,7 +34,6 @@
             transition: all 0.3s ease;
         }
 
-        /* رأس الصفحة */
         header {
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
@@ -42,7 +41,7 @@
             padding: 15px 40px;
             display: flex;
             align-items: center;
-            justify-content: space-between; /* فصل الشعار عن أزرار اللغة */
+            justify-content: space-between;
             border-bottom: 1px solid rgba(255, 255, 255, 0.6);
             flex-wrap: wrap;
             gap: 15px;
@@ -83,7 +82,6 @@
             margin-top: 4px;
         }
 
-        /* أزرار اختيار اللغة */
         .lang-switcher {
             display: flex;
             gap: 10px;
@@ -139,7 +137,6 @@
             padding: 40px;
             margin-bottom: 30px;
             border: 1px solid rgba(255, 255, 255, 0.7);
-            /* استخدام start ليتجاوب تلقائياً مع اليمين واليسار */
             text-align: start; 
         }
 
@@ -195,12 +192,12 @@
 
         .edu-list {
             list-style: none;
-            padding-inline-start: 5px; /* يدعم اللغتين */
+            padding-inline-start: 5px;
         }
 
         .edu-item {
             position: relative;
-            padding-inline-start: 30px; /* يدعم اللغتين */
+            padding-inline-start: 30px;
             margin-bottom: 12px;
             font-size: 16px;
         }
@@ -208,11 +205,10 @@
         .edu-item::before {
             content: '🎓';
             position: absolute;
-            inset-inline-start: 0; /* يدعم اللغتين */
+            inset-inline-start: 0;
             top: 0;
         }
 
-        /* تنسيقات قسم التواصل */
         .footer-contacts {
             text-align: center;
             margin-top: 40px;
@@ -307,7 +303,6 @@
             </div>
         </div>
         
-        <!-- أزرار تبديل اللغة -->
         <div class="lang-switcher">
             <button class="lang-btn active" onclick="setLang('ar')">عربي</button>
             <button class="lang-btn" onclick="setLang('he')">עברית</button>
@@ -362,13 +357,15 @@
                 </a>
 
                 <div class="qr-section">
+                    <!-- تم استخدام API لتوليد الباركود مباشرة من رابط الانستجرام الخاص بك -->
                     <a href="https://www.instagram.com/invites/contact/?igsh=1f1kn2se14d4g&utm_content=3d8dgkv" target="_blank" class="qr-card">
-                        <img src="url_qrcodecreator.com_18_04_35.png" alt="QR Instagram" class="qr-image">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.instagram.com/invites/contact/?igsh=1f1kn2se14d4g" alt="QR Instagram" class="qr-image">
                         <span class="qr-title" style="color: #E1306C;" data-i18n="instaText"><i class="fab fa-instagram"></i> انستجرام</span>
                     </a>
                     
+                    <!-- تم استخدام API لتوليد الباركود مباشرة من رابط الفيسبوك الخاص بك -->
                     <a href="https://www.facebook.com/share/1XHc7SCeq1/" target="_blank" class="qr-card">
-                        <img src="muna mustafa kanaanih.png" alt="QR Facebook" class="qr-image">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.facebook.com/share/1XHc7SCeq1/" alt="QR Facebook" class="qr-image">
                         <span class="qr-title" style="color: #1877F2;" data-i18n="fbText"><i class="fab fa-facebook"></i> فيسبوك</span>
                     </a>
                 </div>
@@ -377,7 +374,6 @@
 
     </div>
 
-    <!-- كود برمجة اللغات (جافاسكريبت) -->
     <script>
         const translations = {
             ar: {
@@ -452,11 +448,9 @@
         };
 
         function setLang(lang) {
-            // تغيير اتجاه الصفحة بناء على اللغة (انجليزي يسار-يمين، والباقي يمين-يسار)
             document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
             document.documentElement.lang = lang;
 
-            // تغيير نصوص الصفحة
             const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
@@ -465,7 +459,6 @@
                 }
             });
 
-            // تحديث تصميم الأزرار المحددة
             const buttons = document.querySelectorAll('.lang-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
